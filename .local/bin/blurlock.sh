@@ -1,11 +1,11 @@
-#! /usr/bin/env bash
+#! /bin/bash
 # blurlock.sh
 
 # take screenshot
 import -window root /tmp/screenshot.png
 
 # blur it
-convert /tmp/screenshot.png -blur 5x4 /tmp/screenshotblur.png
+magick /tmp/screenshot.png -blur 5x4 /tmp/screenshotblur.png
 
 # lock the screen
 i3lock -i /tmp/screenshotblur.png

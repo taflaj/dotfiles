@@ -1,0 +1,10 @@
+allow_images=true
+columns=2
+# height=50%
+# image_size=32
+insensitive=true
+# lines=
+# mode=drun,run
+mode=drun
+prompt=Your wish is my will
+# width=50%
