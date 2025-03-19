@@ -1,0 +1,128 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+format = """
+$status\
+$cmd_duration\
+$git_branch\
+$git_commit\
+$git_metrics\
+$git_state\
+$git_status\
+$golang\
+$python\
+$ruby\
+$container\
+[](color_dark)\
+$jobs\
+$username\
+[](bg:color_light fg:color_dark)\
+$hostname\
+[](bg:color_bg fg:color_light)\
+$directory\
+$character"""
+palette = 'blue'
+
+[palettes.blue]
+color_bg = '#ccccff'
+color_dark = '#000066'
+color_error = '#bf0000'
+color_fg = '#0000ff'
+color_light = '#0000ff'
+
+[palettes.green]
+color_bg = '#ccffcc'
+color_dark = '#006600'
+color_error = '#bf0000'
+color_fg = '#006600'
+color_light = '#00ff00'
+
+[palettes.yellow]
+color_bg = '#ffffcc'
+color_dark = '#666600'
+color_error = '#bf0000'
+color_fg = '#666600'
+color_light = '#ffff00'
+
+[character]
+format = '$symbol '
+error_symbol = '[❌](bg:color_bg fg:color_error)[](color_bg)'
+success_symbol = '[](color_bg)'
+
+[cmd_duration]
+disabled = false
+format = "󱑂 [$duration](bold color_bg)\n"
+min_time = 500
+show_milliseconds = true
+
+[container]
+disabled = false
+format = '[](color_bg)[ $symbol $name ](bold fg:color_fg bg:color_bg)[](color_bg)'
+symbol = ''
+
+[directory]
+home_symbol = ' '
+style = "bold bg:color_bg fg:color_fg"
+format = "[ $path ]($style)"
+truncate_to_repo = false
+truncation_length = 3
+truncation_symbol = ' /'
+
+[git_branch]
+disabled = false
+format='[$symbol$branch(:$remote_branch)]($style) '
+
+[git_commit]
+disabled = true
+
+[git_metrics]
+disabled = true
+
+[git_state]
+disabled = true
+
+[git_status]
+disabled = false
+modified = '📝$count'
+staged = '[$count](green)'
+untracked = '[🤷$count](yellow)'
+format = "([$all_status$ahead_behind]($style)) "
+
+[golang]
+format = '[](color_dark)[${symbol}${version}](bg:color_dark fg:color_bg)[](color_dark)'
+version_format = "${raw}"
+
+[hostname]
+disabled = false
+ssh_only = false
+style = "bold bg:color_light fg:color_dark"
+format = "[ $hostname ]($style)"
+
+[jobs]
+disabled = false
+format = '[$number$symbol]($style)'
+style = 'bold bg:color_dark fg:color_light'
+symbol = '✦'
+
+[package]
+disabled = true
+
+[python]
+format = '[](color_dark)[${symbol}${pyenv_prefix}${version}](bg:color_dark fg:color_bg)[( ${virtualenv})](bg:color_dark fg:color_bg bold)[](color_dark)'
+pyenv_version_name = false
+symbol = " "
+version_format = "${raw}"
+
+[ruby]
+format = '[](color_dark)[${symbol}${version}](bg:color_dark fg:color_bg)[](color_dark)'
+version_format = "${raw}"
+
+[status]
+disabled = false
+format = "[]($style)[$symbol $status](bold bg:color_error fg:yellow)[]($style)\n"
+style = "bold color_error"
+symbol = ""
+
+[username]
+format = '[ $user ]($style)'
+show_always = true
+style_user = "bold bg:color_dark fg:color_light"
